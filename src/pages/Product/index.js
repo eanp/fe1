@@ -47,7 +47,8 @@ export default function Product() {
     })
   }
   const handlePhoto = (e) => {
-    setPhoto(e.target.value)
+    setPhoto(e.target.files[0])
+    console.log(e.target.files[0])
   }
 
   const handleChange = (e) =>{
@@ -65,7 +66,7 @@ export default function Product() {
         <input type="text" value={inputData.name} name="name" onChange={handleChange} placeholder="nama"/>
         <input type="number" value={inputData.stock} name="stock" onChange={handleChange} placeholder="stock"/>
         <input type="number" value={inputData.price} name="price" onChange={handleChange} placeholder="price"/>
-        <input type="file" value={photo} name="photo" onChange={handlePhoto} placeholder="photo"/>
+        <input type="file" name="photo" onChange={handlePhoto} placeholder="photo"/>
 
         <button className='btn btn-primary' type="submit">
           input
