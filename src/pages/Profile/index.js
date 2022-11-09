@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import axios from 'axios'
-import './Profile.css'
+import styles from'./Profile.module.css'
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
@@ -34,16 +34,16 @@ export default function Profile() {
             </li>
         </ul> */}
 
-        <div className='container white p-5'>
+        <div className='container p-5'>
                 <h1>My Profile</h1>
                 <h5 className='text-secondary mb-3'>Manage your profile information</h5>
-                <div className='line mb-3'></div>
+                <div className={styles.line}></div>
 
                 <div className='container col-12 row'>
                             <div className='col col-8 row'>
                                 {/* form */}
-                            <div className='col col-12 row  list-form'>
-                                <div className='col col-3 centered-value'>
+                            <div className='col col-12 row '>
+                                <div className='col col-3'>
                                     Name
                                 </div>
                                 <div className='col col-9'>
@@ -52,8 +52,8 @@ export default function Profile() {
                                 />
                             </div>
                         </div>
-                            <div className='col col-12 row  list-form'>
-                                <div className='col col-3 centered-value'>
+                            <div className='col col-12 row '>
+                                <div className='col col-3'>
                                     Email
                                 </div>
                                 <div className='col col-9'>
@@ -62,8 +62,8 @@ export default function Profile() {
                                 />
                             </div>
                         </div>
-                            <div className='col col-12 row  list-form'>
-                                <div className='col col-3 centered-value'>
+                            <div className='col col-12 row '>
+                                <div className='col col-3'>
                                     Phone Number
                                 </div>
                                 <div className='col col-9'>
@@ -72,8 +72,8 @@ export default function Profile() {
                                 />
                             </div>
                         </div>
-                            <div className='col col-12 row  list-form'>
-                                <div className='col col-3 centered-value'>
+                            <div className='col col-12 row '>
+                                <div className='col col-3'>
                                   Gender
                                 </div>
                                 <div className='col col-9 row'>
@@ -89,8 +89,8 @@ export default function Profile() {
                             </div>
                                 </div>
                             </div>
-                            <div className='col col-12 row  list-form mt-3'>
-                                <div className='col col-3 centered-value'>
+                            <div className='col col-12 row  mt-3'>
+                                <div className='col col-3'>
                                     Date of birth
                                 </div>
                                 <div className='col col-9'>
@@ -100,8 +100,8 @@ export default function Profile() {
                             </div>
                         </div>
                     </div>
-                        <div className='col col-4 line-center'>
-                        <img src="https://res.cloudinary.com/demo/image/facebook/65646572251.jpg" class="mx-auto d-block image" alt="..."/>
+                        <div className='col col-4'>
+                        <img src="https://res.cloudinary.com/demo/image/facebook/65646572251.jpg" className={styles.image}alt="..."/>
                         </div>
                 </div>
         </div>
