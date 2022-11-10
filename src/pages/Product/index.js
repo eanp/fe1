@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import axios from 'axios'
+import styles from'./Product.module.css'
 
 export default function Product() {
   const [data,setData] = useState([])
@@ -101,7 +102,7 @@ export default function Product() {
               {item.price}
             </td>
             <td>
-              <img src={item.photo} className="img img-thumbnail" />
+              <img src={item.photo} className={styles.photo} />
             </td>
           </tr>
           ))
