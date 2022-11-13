@@ -14,9 +14,8 @@ code {
 nav{
   width: 100vw;
   display: flex;
-  background-color: salmon;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  color: white;
 }
-

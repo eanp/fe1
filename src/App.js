@@ -13,7 +13,7 @@ function App() {
         {title}
       </header>
       <BrowserRouter>
-        <nav>
+        <nav className='bg-info'>
             <Link to="/">Home</Link>
           
             <Link to="/product">Product</Link>
