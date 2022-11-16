@@ -2,6 +2,7 @@ import React,{useState,useEffect} from 'react'
 import axios from 'axios'
 import styles from'./Product.module.css'
 import Alert from "../../components/Alert";
+import Navbar from '../../components/Navbar'
 
 export default function Product() {
   const [data,setData] = useState([])
@@ -78,7 +79,11 @@ export default function Product() {
 
   let users = `http://localhost:3000/products?sortby=${sortBy}&sort=${sort}&search=${inputData.search}`
   const getData = ()=> {
-    axios.get(users)
+    let token = localStorage.getItem("token")
+    console.log("my token",token)
+    axios.get(users,{headers:{
+      "Authorization" : `Bearer ${token}`
+    }})
     .then((res)=>{
         console.log("get data success")
         console.log(res.data.data)
@@ -91,9 +96,14 @@ export default function Product() {
       .catch((err)=>{
         console.log("get data fail")
         console.log(err)
-         setData([])
-        setMessageShow(true)
-      setMessage({title:"fail",text:"get data fail",type:"danger"})
+        setData([])
+
+        err.response.data.message == 'server need token' &&  setMessageShow(true)
+        err.response.data.message == 'server need token' &&   setMessage({title:"belum login",text:"user must login",type:"danger"})
+        
+        err.response.data.message !== 'server need token' &&  setMessageShow(true)
+        err.response.data.message !== 'server need token' &&   setMessage({title:"fail",text:"get data fail",type:"danger"})
+  
       messageTime()
     })
   }
@@ -165,9 +175,7 @@ export default function Product() {
 
   return (
     <div>
-
-
-
+      <Navbar />
       {/* post data */}
       <form onSubmit={postForm} className="container mt-3 p-2 border border-3 ">
         <div className="d-flex flex-row">
